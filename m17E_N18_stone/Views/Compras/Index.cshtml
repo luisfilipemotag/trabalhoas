@@ -1,0 +1,60 @@
+﻿@model IEnumerable<trabalhoas.Models.ComprasModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>Index</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Aplicaçao AS", "Index", "Comercio", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Campanhas", "Index", "Campanhas")</li>
+                    <li>@Html.ActionLink("Funcionario", "Index", "Funcionario")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "Compras")</li>
+                    <li>@Html.ActionLink("Comercio", "Index", "Comercio")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    @Html.ActionLink("Create New", "criar")
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_CARTAO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_COMPRA)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_CARTAO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATA_COMPRA)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<trabalhoas.Models.CampanhasModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Aplicaçao AS", "Index", "Comercio", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Campanhas", "Index", "Campanhas")</li>
+                    <li>@Html.ActionLink("Funcionario", "Index", "Funcionario")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "Compras")</li>
+                    <li>@Html.ActionLink("Comercio", "Index", "Comercio")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "criar")<br>
+        @Html.ActionLink("Pesquisar", "Pesquisar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NOME_CAMPANHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_INICIO_CAMPANHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_FIM_CAMPANHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRICAO_CAMPANHAS)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOME_CAMPANHA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATA_INICIO_CAMPANHA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATA_FIM_CAMPANHA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESCRICAO_CAMPANHAS)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

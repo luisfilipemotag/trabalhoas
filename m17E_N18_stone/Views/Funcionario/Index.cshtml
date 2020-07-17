@@ -1,0 +1,86 @@
+﻿@model IEnumerable<trabalhoas.Models.FuncionariosModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Aplicaçao AS", "Index", "Comercio", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Campanhas", "Index", "Campanhas")</li>
+                    <li>@Html.ActionLink("Funcionario", "Index", "Funcionario")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "Compras")</li>
+                    <li>@Html.ActionLink("Comercio", "Index", "Comercio")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "criar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOME_FUNCIONARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL_FUNCIONARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TELEFONE_FUNCIONARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOCALIDADE_FUNCIONARIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COD_POSTAL_FUNCIONARIO)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOME_FUNCIONARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL_FUNCIONARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TELEFONE_FUNCIONARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOCALIDADE_FUNCIONARIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COD_POSTAL_FUNCIONARIO)
+                </td>
+               
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

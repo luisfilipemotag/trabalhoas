@@ -1,0 +1,78 @@
+﻿@model IEnumerable<trabalhoas.Models.CampanhasModel>
+
+@{
+    ViewBag.Title = "Pesquisar";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pesquisar</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Aplicaçao AS", "Index", "Comercio", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Campanhas", "Index", "Campanhas")</li>
+                    <li>@Html.ActionLink("Funcionario", "Index", "Funcionario")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "Compras")</li>
+                    <li>@Html.ActionLink("Comercio", "Index", "Comercio")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <form method="post" class="form-horizontal" id="form">
+        Pesquisar:<input type="text" name="Nome" id="Nome" class="form-control" />
+        <input type="submit" value="Pesquisar" class="btn" />
+    </form>
+    @if (ViewBag.ListaComercio != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    NOME_CAMPANHA
+                </th>
+                <th>
+                    DATA_INICIO_CAMPANHA
+                </th>
+                <th>
+                    DATA_FIM_CAMPANHA
+                </th>
+                <th>
+                    DESCRICAO_CAMPANHAS
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in ViewBag.ListaComercio)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.NOME_CAMPANHA)
+                    </td>
+                    <td>
+                        @Html.Raw(item.DATA_INICIO_CAMPANHA)
+                    </td>
+                    <td>
+                        @Html.Raw(item.DATA_FIM_CAMPANHA)
+                    </td>
+                    <td>
+                        @Html.Raw(item.DESCRICAO_CAMPANHAS)
+                    </td>
+
+                </tr>
+            }
+
+
+        </table>}
+</body>
+
+
+</html>

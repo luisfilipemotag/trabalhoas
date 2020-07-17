@@ -1,0 +1,105 @@
+﻿@model IEnumerable<trabalhoas.Models.ComercioModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>Index</title>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Aplicaçao AS", "Index", "Comercio", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Campanhas", "Index", "Campanhas")</li>
+                    <li>@Html.ActionLink("Funcionario", "Index", "Funcionario")</li>
+                    <li>@Html.ActionLink("Compras", "Index", "Compras")</li>
+                    <li>@Html.ActionLink("Comercio", "Index", "Comercio")</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "criar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NOME_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMAIL_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TELEFONE_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MORADA_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOCALIDADE_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COD_POSTAL_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRICAO_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_ABERTURA_COMERCIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPRIETARIO_COMERCIO)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOME_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMAIL_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TELEFONE_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MORADA_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOCALIDADE_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COD_POSTAL_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESCRICAO_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATA_ABERTURA_COMERCIO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPRIETARIO_COMERCIO)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
